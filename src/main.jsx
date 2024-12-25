@@ -1,27 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, createRoutesFromElements,Route, RouterProvider } from 'react-router-dom'
-import './index.css'
-import App from './App.jsx'
-import Winner from './assets/components/Winner.jsx'
-import { WinnerProvider } from './assets/WinnerContext.jsx'
-
-
-const router = createBrowserRouter(createRoutesFromElements(
-  <Route>
-    <Route path="/" element={<App />} />
-    <Route path="/winner" element={<Winner />} /> 
-  </Route>
-),
-{
-  basename: '/tictactoe/', // Set the basename to match your GitHub Pages subpath
-});
-
-
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './index.css';
+import App from './App.jsx';
+import Winner from './assets/components/Winner.jsx';
+import { WinnerProvider } from './assets/WinnerContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <WinnerProvider> 
-    <RouterProvider router={router} />
-  </WinnerProvider>,
-)
+  <WinnerProvider>
+    <BrowserRouter basename="/tictactoe">
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/winner" element={<Winner />} />
+      </Routes>
+    </BrowserRouter>
+  </WinnerProvider>
+);
