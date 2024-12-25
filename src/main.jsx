@@ -12,7 +12,12 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App />} />
     <Route path="/winner" element={<Winner />} /> 
   </Route>
-))
+),
+{
+  basename: '/tictactoe/', // Set the basename to match your GitHub Pages subpath
+});
+
+
 
 
 createRoot(document.getElementById('root')).render(
